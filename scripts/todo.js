@@ -23,13 +23,14 @@ function saveToDos() {
 function paintToDo(text) {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  const delBtn = document.createElement("button");
+  const i = document.createElement("i");
   const newId = toDos.length + 1;
   span.innerText = text;
-  delBtn.innerText = "❌";
-  delBtn.addEventListener("click", deleteToDo);
+  i.classList.add("far");
+  i.classList.add("fa-window-close");
+  i.addEventListener("click", deleteToDo);
   li.appendChild(span);
-  li.appendChild(delBtn);
+  li.appendChild(i);
   li.id = newId;
   list_todo.appendChild(li);
   const toDoObj = {
@@ -49,13 +50,19 @@ function handleSubmit(event) {
 
 function loadToDo() {
   const loadedToDos = localStorage.getItem(TODOS_LS);
-  const parsedToDos = JSON.parse(loadedToDos);
-  parsedToDos.forEach(function(toDo) {
-    paintToDo(toDo.text);
-  });
+  if (loadedToDos !== null) {
+    const parsedToDos = JSON.parse(loadedToDos);
+    parsedToDos.forEach(function(toDo) {
+      paintToDo(toDo.text);
+    });
+  }
 }
 
 function init() {
+  const currentUser = localStorage.getItem(USER_LS);
+  if (currentUser !== null) {
+    form_todo.classList.add(SHOWING_CN);
+  }
   loadToDo();
   form_todo.addEventListener("submit", handleSubmit);
 }

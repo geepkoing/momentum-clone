@@ -5,21 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Momentum Clone</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/e04f78490a.js"></script>
   </head>
   <body>
-    <div class="js-clock">
-      <h1>00:00:00</h1>
+    <div class="container">
+      <div class="js-clock clock">
+        <h1>00:00:00</h1>
+      </div>
+      <form class="js-form-greetings form">
+        <input type="text" placeholder="What's your name?" />
+      </form>
+      <h4 class="js-greetings greetings"></h4>
+      <form class="js-form-todo form">
+        <input type="text" placeholder="Enter a To-Do" />
+      </form>
+      <ul class="js-list-todo list"></ul>
     </div>
-    <form class="js-form-greetings form">
-      <input type="text" placeholder="What's your name?" />
-    </form>
-    <h4 class="js-greetings greetings"></h4>
-    <form class="js-form-todo">
-      <input type="text" placeholder="Enter a To-Do" />
-    </form>
-    <ul class="js-list-todo"></ul>
-    <span class="js-weather"></span>
+    <div class="js-weather weather">
+      <div class="weather__current"></div>
+      <div class="weather__place"></div>
+    </div>
     <script src="scripts/clock.js"></script>
     <script src="scripts/greetings.js"></script>
     <script src="scripts/todo.js"></script>
